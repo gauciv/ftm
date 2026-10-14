@@ -13,9 +13,9 @@ local CityBuilder = {
 }
 
 local GROUND_THICKNESS = 1
-local PATH_THICKNESS = 0.2
-local DISTRICT_PAD_THICKNESS = 0.2
-local PLAZA_PAD_THICKNESS = 0.2
+local PATH_THICKNESS = 0.08
+local DISTRICT_PAD_THICKNESS = 0.1
+local PLAZA_PAD_THICKNESS = 0.12
 local YARD_FENCE_THICKNESS = 0.6
 
 local function worldPosition(position: Vector2, y: number?): Vector3
@@ -50,12 +50,12 @@ local function makePart(parent: Instance, name: string, size: Vector3, cframe: C
 	return part
 end
 
-local function makeDisc(parent: Instance, name: string, position: Vector2, radius: number, color: Color3, thickness: number)
+local function makeDisc(parent: Instance, name: string, position: Vector2, radius: number, color: Color3, thickness: number, topY: number)
 	makePart(
 		parent,
 		name,
 		Vector3.new(thickness, radius * 2, radius * 2),
-		CFrame.new(position.X, -thickness / 2, position.Y) * CFrame.Angles(0, 0, math.pi / 2),
+		CFrame.new(position.X, topY - thickness / 2, position.Y) * CFrame.Angles(0, 0, math.pi / 2),
 		color,
 		Enum.PartType.Cylinder
 	)
@@ -113,8 +113,8 @@ local function spawnProp(spec: any, parent: Instance, base: CFrame, attributes: 
 	return model
 end
 
-local function placeFrame(position: Vector2, rotationDeg: number): CFrame
-	return CFrame.new(position.X, 0, position.Y) * CFrame.Angles(0, math.rad(rotationDeg), 0)
+local function placeFrame(position: Vector2, rotationDeg: number, y: number?): CFrame
+	return CFrame.new(position.X, y or Config.LayerPath, position.Y) * CFrame.Angles(0, math.rad(rotationDeg), 0)
 end
 
 local function buildGround(groundFolder: Instance)
@@ -122,15 +122,15 @@ local function buildGround(groundFolder: Instance)
 		groundFolder,
 		"FTM_Ground",
 		Vector3.new(City.Ground.Size, GROUND_THICKNESS, City.Ground.Size),
-		CFrame.new(0, -GROUND_THICKNESS / 2, 0),
+		CFrame.new(0, Config.LayerGround - GROUND_THICKNESS / 2, 0),
 		City.Ground.Color
 	)
-	makeDisc(groundFolder, "PlazaPad", City.Plaza.Position, City.Plaza.Radius, City.Plaza.Color, PLAZA_PAD_THICKNESS)
+	makeDisc(groundFolder, "PlazaPad", City.Plaza.Position, City.Plaza.Radius, City.Plaza.Color, PLAZA_PAD_THICKNESS, Config.LayerPlaza)
 
 	for _, district in City.Districts do
 		runEntry("district pad " .. tostring(district.Key), function()
 			local center = pointOnRing(district.AngleDeg, Config.DistrictRadius)
-			makeDisc(groundFolder, district.Key .. "Pad", center, Config.DistrictPadRadius, district.Color, DISTRICT_PAD_THICKNESS)
+			makeDisc(groundFolder, district.Key .. "Pad", center, Config.DistrictPadRadius, district.Color, DISTRICT_PAD_THICKNESS, Config.LayerPad)
 		end)
 	end
 
@@ -201,7 +201,7 @@ local function buildPaths(pathsFolder: Instance)
 				pathsFolder,
 				path.Key,
 				Vector3.new(Config.PathWidth, PATH_THICKNESS, length),
-				CFrame.new(midpoint.X, PATH_THICKNESS / 2, midpoint.Y) * CFrame.Angles(0, yaw, 0),
+				CFrame.new(midpoint.X, Config.LayerPath - PATH_THICKNESS / 2, midpoint.Y) * CFrame.Angles(0, yaw, 0),
 				Color3.fromRGB(139, 139, 136)
 			)
 		end)
@@ -216,7 +216,7 @@ local function buildDistricts(districtsFolder: Instance, counts: {[string]: numb
 			counts.districts += 1
 			local center = pointOnRing(district.AngleDeg, Config.DistrictRadius)
 			local rotation = district.Gate.Rotation or (90 - district.AngleDeg)
-			local base = placeFrame(center, 0)
+			local base = placeFrame(center, 0, Config.LayerPad)
 			if spawnProp(district.Gate, folder, base, {FTMDistrict = district.Key}) then
 				counts.props += 1
 			end
@@ -279,7 +279,7 @@ local function buildPlaza(placesFolder: Instance, counts: {[string]: number})
 	local folder = makeFolder(placesFolder, "Plaza")
 	folder:SetAttribute("FTMPlace", "Plaza")
 	counts.places += 1
-	local base = placeFrame(City.Plaza.Position, 0)
+	local base = placeFrame(City.Plaza.Position, 0, Config.LayerPlaza)
 	for _, prop in City.Plaza.Props do
 		runEntry("plaza prop " .. tostring(prop.Label), function()
 			if spawnProp(prop, folder, base, {FTMPlace = "Plaza"}) then
@@ -310,7 +310,7 @@ local function buildYards(placesFolder: Instance, counts: {[string]: number})
 			counts.places += 1
 			local center = pointOnRing(yard.AngleDeg, yard.RadiusScale * Config.DistrictRadius)
 			local yaw = 90 - yard.AngleDeg
-			local base = placeFrame(center, yaw)
+			local base = placeFrame(center, yaw, Config.LayerGround)
 			local half = yard.HalfExtent
 			local height = yard.FenceHeight
 			local fenceColor = Color3.fromRGB(111, 102, 84)

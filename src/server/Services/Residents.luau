@@ -124,8 +124,9 @@ local function buildResidents(root: Instance)
 				role = resident.Role,
 				color = district.Color,
 			})
-			local groundPosition = Vector3.new(position.X, 3, position.Y)
-			local lookAt = Vector3.new(center.X, 3, center.Y)
+			local standY = Config.LayerPath + 3
+			local groundPosition = Vector3.new(position.X, standY, position.Y)
+			local lookAt = Vector3.new(center.X, standY, center.Y)
 			model:PivotTo(CFrame.lookAt(groundPosition, lookAt))
 			model:SetAttribute("FTMDistrict", resident.DistrictKey)
 			model.Parent = folder

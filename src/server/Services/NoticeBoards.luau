@@ -80,7 +80,11 @@ function NoticeBoards.Start()
 		Log.warn("NoticeBoards", "FTM_City.Districts is missing")
 		return
 	end
-	local notebook = require(script.Parent.Notebook)
+	local notebookOk, notebook = pcall(require, script.Parent.Notebook)
+	if not notebookOk or type(notebook) ~= "table" or type(notebook.addBoardEntry) ~= "function" then
+		Log.warn("NoticeBoards", "Notebook is unavailable; board entries will not be recorded")
+		return
+	end
 	local problems = require(script.Parent.Problems)
 	local clock = require(script.Parent.CycleClock)
 	for _, district in City.Districts do
