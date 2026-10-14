@@ -58,6 +58,11 @@ export type Yard = {
 	AngleDeg: number,
 	RadiusScale: number,
 	HalfExtent: number,
+	FenceHeight: number,
+	OfficeSize: Vector3,
+	OfficeOffset: Vector2,
+	OfficeColor: Color3,
+	EntranceSign: PropSpec,
 	Props: {PropSpec},
 }
 
@@ -65,7 +70,7 @@ export type CityLayout = {
 	Ground: {Size: number, Color: Color3},
 	Districts: {District},
 	Places: {Place},
-	Plaza: {Position: Vector2, Radius: number, Props: {PropSpec}},
+	Plaza: {Position: Vector2, Radius: number, Color: Color3, Props: {PropSpec}},
 	Yards: {Yard},
 	Paths: {{Key: string, TargetKind: string, TargetKey: string}},
 	Spawn: {Name: string, Offset: Vector2},

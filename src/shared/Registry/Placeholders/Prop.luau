@@ -141,13 +141,13 @@ local function buildFootbridge(key: string, label: string, options: {[string]: a
 	local model = makeModel(key, label)
 	local wood = options.color or Color3.fromRGB(131, 97, 64)
 	for x = -size.X / 2, size.X / 2 - 3, 3 do
-		makePart(model, "BridgePlank", Vector3.new(2.8, 0.5, size.Z - 2), Vector3.new(x, size.Y, 0), wood)
+		makePart(model, "BridgePlank", Vector3.new(2.8, 0.5, size.Z - 2), Vector3.new(x, 0.25, 0), wood)
 	end
 	for _, z in {-size.Z / 2 + 0.5, size.Z / 2 - 0.5} do
-		makePart(model, "RailPost", Vector3.new(0.6, size.Y + 2, 0.6), Vector3.new(0, (size.Y + 2) / 2, z), wood)
-		makePart(model, "BridgeRail", Vector3.new(size.X, 0.6, 0.6), Vector3.new(0, size.Y + 1.8, z), wood)
+		makePart(model, "RailPost", Vector3.new(0.6, size.Y - 0.5, 0.6), Vector3.new(0, size.Y / 2 + 0.25, z), wood)
+		makePart(model, "BridgeRail", Vector3.new(size.X, 0.6, 0.6), Vector3.new(0, size.Y - 0.05, z), wood)
 	end
-	addSign(model, label, math.min(size.X * 0.6, 16), 2, Vector3.new(0, size.Y + 3.5, -size.Z / 2 - 0.7))
+	addSign(model, label, math.min(size.X * 0.6, 16), 2, Vector3.new(0, size.Y + 1.2, -size.Z / 2 - 0.7))
 	return model
 end
 

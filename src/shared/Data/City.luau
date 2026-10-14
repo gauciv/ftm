@@ -111,6 +111,7 @@ local City: Types.CityLayout = {
 	Plaza = {
 		Position = Vector2.new(0, 110),
 		Radius = 45,
+		Color = Color3.fromRGB(184, 186, 184),
 		Props = {
 			{Key = "Prop.Podium", Label = "Podium", Offset = Vector2.new(0, 0), Size = Vector3.new(6, 4, 4)},
 			{Key = "Prop.Bench", Label = "Bench", Offset = Vector2.new(-20, 8), Size = Vector3.new(12, 2, 3)},
@@ -120,6 +121,8 @@ local City: Types.CityLayout = {
 	Yards = {
 		{
 			Key = "YardA", Name = "Contractor Yard A", Label = "Foreman Yard A", AngleDeg = 90, RadiusScale = 0.62, HalfExtent = 30,
+			FenceHeight = 4, OfficeSize = Vector3.new(24, 14, 18), OfficeOffset = Vector2.new(0, 6), OfficeColor = Color3.fromRGB(168, 166, 154),
+			EntranceSign = {Key = "Prop.DistrictGate", Label = "Foreman Yard A", Offset = Vector2.new(0, -27), Size = Vector3.new(20, 6, 1)},
 			Props = {
 				{Key = "Prop.Crate", Label = "Yard A Crates", Offset = Vector2.new(-10, -10), Size = Vector3.new(8, 8, 8)},
 				{Key = "Prop.Crate", Label = "Yard A Crates", Offset = Vector2.new(10, -10), Size = Vector3.new(8, 8, 8)},
@@ -127,6 +130,8 @@ local City: Types.CityLayout = {
 		},
 		{
 			Key = "YardB", Name = "Contractor Yard B", Label = "Foreman Yard B", AngleDeg = 234, RadiusScale = 0.62, HalfExtent = 30,
+			FenceHeight = 4, OfficeSize = Vector3.new(24, 14, 18), OfficeOffset = Vector2.new(0, 6), OfficeColor = Color3.fromRGB(168, 166, 154),
+			EntranceSign = {Key = "Prop.DistrictGate", Label = "Foreman Yard B", Offset = Vector2.new(0, -27), Size = Vector3.new(20, 6, 1)},
 			Props = {
 				{Key = "Prop.Crate", Label = "Yard B Crates", Offset = Vector2.new(-10, -10), Size = Vector3.new(8, 8, 8)},
 				{Key = "Prop.Crate", Label = "Yard B Crates", Offset = Vector2.new(10, -10), Size = Vector3.new(8, 8, 8)},
@@ -144,7 +149,7 @@ local City: Types.CityLayout = {
 	},
 	Spawn = {
 		Name = "FTM_Spawn",
-		Offset = Vector2.new(0, 132),
+		Offset = Vector2.new(0, 22),
 	},
 }
 

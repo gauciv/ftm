@@ -1,8 +1,8 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U2.2 Sign helper, enterable building, props
-Next: U2.3 CityBuilder service
+Last done: U2.3 CityBuilder service
+Next: U2.4 Location toast controller
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Phase 1 patch complete; Studio checks STUDIO-UNVERIFIED (no connected place).
@@ -30,6 +30,9 @@ PHASE 1 COMPLETE
 ## Blockers
 (none yet)
 
+## Phase 2 decisions
+- Spawn offset is 22 studs from the Plaza center so it stays inside the 45-stud plaza radius; the inherited Baseplate is hidden and made non-colliding to prevent z-fighting with FTM_Ground.
+
 ## Manual checks (user, in Studio)
 1. STUDIO-UNVERIFIED — Output shows `[FTM][Diagnostics] server ready`.
 2. STUDIO-UNVERIFIED — Output shows the client ping reply (`pong`) and no warnings.
@@ -38,7 +41,7 @@ PHASE 1 COMPLETE
 ## Phase 2: Greybox city
 - [x] U2.1 City data + config
 - [x] U2.2 Sign helper, enterable building, props
-- [ ] U2.3 CityBuilder service
+- [x] U2.3 CityBuilder service
 - [ ] U2.4 Location toast controller
 - [ ] U2.5 Final QA and handoff
 
