@@ -1,0 +1,6 @@
+*.rbxl
+*.rbxlx
+sourcemap.json
+Packages/
+diagnostics/
+.DS_Store
