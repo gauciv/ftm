@@ -4,6 +4,7 @@ local Log = require(script.Parent.Parent.Log)
 local Overrides = require(script.Parent.Overrides)
 local Building = require(script.Parent.Placeholders.Building)
 local Prop = require(script.Parent.Placeholders.Prop)
+local Person = require(script.Parent.Placeholders.Person)
 local Sign = require(script.Parent.Placeholders.Sign)
 
 local VisualRegistry = {}
@@ -43,6 +44,8 @@ function VisualRegistry.build(key: string, params: {[string]: any}?): Model
 		if prop ~= nil then
 			return prop
 		end
+	elseif prefix == "Person" then
+		return Person.build(key, params)
 	end
 
 	Log.warn("VisualRegistry", string.format("Unknown visual key '%s'; using magenta placeholder", key))

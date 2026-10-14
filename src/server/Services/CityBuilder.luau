@@ -386,6 +386,7 @@ function CityBuilder.Start()
 	end
 	buildPlaza(placesFolder, counts)
 	buildYards(placesFolder, counts)
+	root:SetAttribute("Ready", true)
 	Log.info("CityBuilder", string.format("built %d districts, %d places, %d props", counts.districts, counts.places, counts.props))
 end
 
