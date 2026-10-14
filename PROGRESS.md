@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U1.6 Visual registry + placeholder building + DevSandbox
-Next: U1.7 Final QA and handoff
+Last done: U1.7 Final QA and handoff
+Next: Phase 2 (awaiting prompt)
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
+Note for next AI: Phase 1 complete; Studio checks STUDIO-UNVERIFIED (no connected place).
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -14,7 +14,9 @@ Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
 - [x] U1.4 Server bootstrap + Diagnostics service
 - [x] U1.5 Client bootstrap + Diagnostics controller
 - [x] U1.6 Visual registry + placeholder building + DevSandbox
-- [ ] U1.7 Final QA and handoff
+- [x] U1.7 Final QA and handoff
+
+PHASE 1 COMPLETE
 
 ## Decisions
 - Kept the existing Workspace Baseplate and Lighting setup; the requested tree and project name are corrected without discarding useful place configuration.
@@ -26,6 +28,6 @@ Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
 (none yet)
 
 ## Manual checks (user, in Studio)
-1. Output shows `[FTM][Diagnostics] server ready`.
-2. Output shows the client ping reply (`pong`) and no warnings.
-3. A gray/colored building with a readable "Council Hall" sign appears near spawn.
+1. STUDIO-UNVERIFIED — Output shows `[FTM][Diagnostics] server ready`.
+2. STUDIO-UNVERIFIED — Output shows the client ping reply (`pong`) and no warnings.
+3. STUDIO-UNVERIFIED — A gray/colored building with a readable "Council Hall" sign appears near spawn.
