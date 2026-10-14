@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U1.7 Final QA and handoff
+Last done: U1.8 Fix sign scaling (world-size signs)
 Next: Phase 2 (awaiting prompt)
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: Phase 1 complete; Studio checks STUDIO-UNVERIFIED (no connected place).
+Note for next AI: Phase 1 patch complete; Studio checks STUDIO-UNVERIFIED (no connected place).
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -15,6 +15,7 @@ Note for next AI: Phase 1 complete; Studio checks STUDIO-UNVERIFIED (no connecte
 - [x] U1.5 Client bootstrap + Diagnostics controller
 - [x] U1.6 Visual registry + placeholder building + DevSandbox
 - [x] U1.7 Final QA and handoff
+- [x] U1.8 Fix sign scaling (world-size signs)
 
 PHASE 1 COMPLETE
 
@@ -23,6 +24,7 @@ PHASE 1 COMPLETE
 - Used the supplied Appendix A and B text verbatim with the required end sentinels.
 - Net.onEvent dispatches by RunService context so the public API name works for both server handlers and client callbacks; missing client remotes have a bounded 5-second wait.
 - VisualRegistry checks override builders before prefix placeholders; DevSandbox only creates its ground when no BasePart named Baseplate exists.
+- Mounted the building sign above the door as a non-colliding part with a welded, world-sized SurfaceGui at 50 pixels per stud.
 
 ## Blockers
 (none yet)
@@ -30,4 +32,4 @@ PHASE 1 COMPLETE
 ## Manual checks (user, in Studio)
 1. STUDIO-UNVERIFIED — Output shows `[FTM][Diagnostics] server ready`.
 2. STUDIO-UNVERIFIED — Output shows the client ping reply (`pong`) and no warnings.
-3. STUDIO-UNVERIFIED — A gray/colored building with a readable "Council Hall" sign appears near spawn.
+3. STUDIO-UNVERIFIED — Walk from the Council Hall to about 80 studs away; its SurfaceGui sign shrinks with the building.

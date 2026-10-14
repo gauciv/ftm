@@ -14,7 +14,7 @@ Roblox + Rojo. Luau only, `.luau` files, `--!strict` at the top of every file. N
 - Server authoritative for money, trust, claims, project phases, evidence, votes. Clients only display and request. Validate every remote argument (type, range, ownership).
 - Never replicate hidden values (true contractor costs, trust numbers, alignment, actual spend) to clients. Send only what the player may perceive.
 - Data-driven: content (problems, contractors, residents, districts, crises, motions) goes in shared/Data tables; tunables in Config. No magic numbers in logic.
-- All visible objects are created through VisualRegistry.build(key, params). Placeholders live in Registry/Placeholders; every placeholder has attributes FTMKey and FTMLabel and a readable sign. Real art later replaces entries via Registry/Overrides.
+- All visible objects are created through VisualRegistry.build(key, params). Placeholders live in Registry/Placeholders; every placeholder has attributes FTMKey and FTMLabel and a readable, world-sized sign (SurfaceGui on a sign part, or BillboardGui sized in Scale with MaxDistance). Never use pixel-sized (Offset) BillboardGuis for building signs. Real art later replaces entries via Registry/Overrides.
 - Style: task.wait/task.spawn/task.delay (never wait/spawn/delay); game:GetService; typed exports; no globals; no deprecated APIs; StyLua formatting. PascalCase modules/services, camelCase locals/functions, UPPER_SNAKE constants. No emojis in code or logs. Log via Log module with [FTM][Tag].
 - Glossary: Councilor = player seat; Cycle = budget cycle (about 120 s); District = map area and resident group; Claim = sponsoring a problem; Project = funded phases; Stable/Unstable trust; Survey; Case file; Evidence; Motion.
 

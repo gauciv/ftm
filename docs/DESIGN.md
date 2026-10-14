@@ -64,7 +64,7 @@ A silent tracker records key moments all round (exposures, phase jumps, uprising
 Cosmetics (outfits, office/vehicle skins, podium, slide themes), victory vanity, private servers, cosmetic pass. Never sell: budget, trust, meetings, claims, camera film, audit speed, hidden-info reveals, paid revives, paid random gameplay items.
 
 ## D16 Art rule
-Placeholder art only for now: default Roblox rigs with role labels, boxes with big signs, district color coding. All visuals come from the Visual Registry so art can be swapped later.
+Placeholder art only for now: default Roblox rigs with role labels, boxes with big signs, district color coding. All visuals come from the Visual Registry so art can be swapped later. Building signs must be world-sized: use a SurfaceGui on a sign part or a BillboardGui sized in Scale with MaxDistance; never use pixel-sized (Offset) BillboardGuis.
 
 ## D17 Open decisions (defaults used until changed)
 Bars readable only at notice boards. NPC councilors are endorsers only. Lobby is per-server. Survey appears at the mayor's announcement.

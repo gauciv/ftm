@@ -36,33 +36,45 @@ function Building.build(key: string, params: {[string]: any}?): Model
 	local body = makePart(model, "Body", size, origin + Vector3.new(0, size.Y / 2, 0), bodyColor)
 	model.PrimaryPart = body
 	makePart(model, "Roof", Vector3.new(size.X + 4, roofHeight, size.Z + 4), origin + Vector3.new(0, size.Y + roofHeight / 2, 0), roofColor)
-	makePart(model, "Door", Vector3.new(4, 8, 0.5), origin + Vector3.new(0, 4, -size.Z / 2 - 0.3), Color3.fromRGB(76, 54, 42))
+	local doorHeight = 8
+	local frontZ = origin.Z - size.Z / 2
+	makePart(model, "Door", Vector3.new(4, doorHeight, 0.5), Vector3.new(origin.X, origin.Y + doorHeight / 2, frontZ - 0.3), Color3.fromRGB(76, 54, 42))
 
+	local signHeight = 2.5
 	local sign = makePart(
 		model,
 		"Sign",
-		Vector3.new(math.min(size.X - 4, 22), 2, 0.5),
-		origin + Vector3.new(0, size.Y - 3, -size.Z / 2 - 0.35),
+		Vector3.new(size.X * 0.72, signHeight, 0.25),
+		Vector3.new(origin.X, origin.Y + doorHeight + 0.25 + signHeight / 2, frontZ - 0.18),
 		Color3.fromRGB(54, 52, 48)
 	)
-	local billboard = Instance.new("BillboardGui")
-	billboard.Name = "BuildingSign"
-	billboard.Adornee = sign
-	billboard.Size = UDim2.fromOffset(600, 120)
-	billboard.StudsOffset = Vector3.new(0, 2, 0)
-	billboard.MaxDistance = 300
-	billboard.AlwaysOnTop = true
-	billboard.Parent = sign
+	sign.Anchored = true
+	sign.CanCollide = false
+	sign.CanTouch = false
+	sign.CanQuery = false
+	local weld = Instance.new("WeldConstraint")
+	weld.Name = "SignWeld"
+	weld.Part0 = body
+	weld.Part1 = sign
+	weld.Parent = sign
+
+	local surface = Instance.new("SurfaceGui")
+	surface.Name = "BuildingSign"
+	surface.Face = Enum.NormalId.Front
+	surface.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud
+	surface.PixelsPerStud = 50
+	surface.Parent = sign
 
 	local text = Instance.new("TextLabel")
 	text.Name = "Label"
 	text.Size = UDim2.fromScale(1, 1)
-	text.BackgroundTransparency = 1
+	text.BackgroundColor3 = Color3.fromRGB(36, 34, 32)
+	text.BackgroundTransparency = 0
 	text.Text = label
 	text.TextColor3 = Color3.new(1, 1, 1)
 	text.TextScaled = true
 	text.Font = Enum.Font.GothamBold
-	text.Parent = billboard
+	text.Parent = surface
 
 	return model
 end
