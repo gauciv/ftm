@@ -1,8 +1,8 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U2.3 CityBuilder service
-Next: U2.4 Location toast controller
+Last done: U2.4 Location toast controller
+Next: U2.5 Final QA and handoff
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Phase 1 patch complete; Studio checks STUDIO-UNVERIFIED (no connected place).
@@ -42,7 +42,7 @@ PHASE 1 COMPLETE
 - [x] U2.1 City data + config
 - [x] U2.2 Sign helper, enterable building, props
 - [x] U2.3 CityBuilder service
-- [ ] U2.4 Location toast controller
+- [x] U2.4 Location toast controller
 - [ ] U2.5 Final QA and handoff
 
 ## Manual checks: Phase 2 (user, in Studio)
