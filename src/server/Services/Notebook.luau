@@ -68,7 +68,7 @@ local function getOrCreate(player: Player): PlayerState
 	return state
 end
 
-local function addEntry(player: Player, state: PlayerState, kind: Entry["kind"], text: string)
+local function addEntry(player: Player, state: PlayerState, kind: "Heard" | "Board" | "Note", text: string)
 	table.insert(state.entries, {kind = kind, cycle = currentCycle, text = text})
 	while #state.entries > Config.NotebookMaxEntries do
 		table.remove(state.entries, 1)

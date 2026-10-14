@@ -2,7 +2,7 @@
 
 ## Handoff
 Last done: U3.8 Dev command, final QA, handoff
-Next: Phase 4 (awaiting prompt)
+Next: U3.9
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Phase 3 complete; Studio verification unavailable (no connected place).
@@ -65,6 +65,7 @@ PHASE 2 COMPLETE
 - [x] U3.6 Client dialogue + resident markers
 - [x] U3.7 Client notebook + board reader
 - [x] U3.8 Dev command, final QA, handoff
+- [ ] U3.9 Fix Notebook syntax error, z-fighting, manual-check count
 
 PHASE 3 COMPLETE
 
