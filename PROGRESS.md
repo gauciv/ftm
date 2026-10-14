@@ -1,15 +1,15 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U1.1 Baseline, Rojo tree check, tooling config
-Next: U1.2 docs/DESIGN.md, AGENTS.md, README
-Partial/dirty files: README.md (pre-existing, reserved for U1.2)
+Last done: U1.2 docs/DESIGN.md, AGENTS.md, README
+Next: U1.3 Shared foundation (Config, Types, Log, Net)
+Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
-- [ ] U1.2 docs/DESIGN.md, AGENTS.md, README
+- [x] U1.2 docs/DESIGN.md, AGENTS.md, README
 - [ ] U1.3 Shared foundation (Config, Types, Log, Net)
 - [ ] U1.4 Server bootstrap + Diagnostics service
 - [ ] U1.5 Client bootstrap + Diagnostics controller
@@ -18,6 +18,7 @@ Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
 
 ## Decisions
 - Kept the existing Workspace Baseplate and Lighting setup; the requested tree and project name are corrected without discarding useful place configuration.
+- Used the supplied Appendix A and B text verbatim with the required end sentinels.
 
 ## Blockers
 (none yet)
