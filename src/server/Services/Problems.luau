@@ -72,6 +72,16 @@ function Problems.getAllLabelsByDistrict(): {[string]: {string}}
 	return result
 end
 
+function Problems.getKeysByDistrict(districtKey: string): {[string]: string}
+	local result: {[string]: string} = {}
+	for _, state in states do
+		if state.definition.DistrictKey == districtKey then
+			result[state.definition.Label] = state.definition.Key
+		end
+	end
+	return result
+end
+
 function Problems.getCycle(): number
 	return if Clock ~= nil then Clock.getCycle() else 0
 end

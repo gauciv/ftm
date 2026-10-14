@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U3.4 Notebook service and resident dialogue flow
-Next: U3.5
+Last done: U3.5 Notice board readings
+Next: U3.6
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: U3.4 complete; notebook owns per-player state and Residents forwards validated talk prompts.
+Note for next AI: U3.5 complete; boards send only surfaced labels and integer percents.
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -60,7 +60,7 @@ PHASE 2 COMPLETE
 - [x] U3.2 Cycle clock + problem bars
 - [x] U3.3 Person placeholder + resident spawning
 - [x] U3.4 Notebook service + resident dialogue flow
-- [ ] U3.5 Notice board readings
+- [x] U3.5 Notice board readings
 - [ ] U3.6 Client dialogue + resident markers
 - [ ] U3.7 Client notebook + board reader
 - [ ] U3.8 Dev command, final QA, handoff
