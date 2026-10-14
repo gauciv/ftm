@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U2.4 Location toast controller
-Next: U2.5 Final QA and handoff
+Last done: U2.5 Final QA and handoff
+Next: Phase 3 (awaiting prompt)
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: Phase 1 patch complete; Studio checks STUDIO-UNVERIFIED (no connected place).
+Note for next AI: Phase 2 complete; Studio checks STUDIO-UNVERIFIED (no connected place).
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -25,13 +25,11 @@ PHASE 1 COMPLETE
 - Net.onEvent dispatches by RunService context so the public API name works for both server handlers and client callbacks; missing client remotes have a bounded 5-second wait.
 - VisualRegistry checks override builders before prefix placeholders; DevSandbox only creates its ground when no BasePart named Baseplate exists.
 - Mounted the building sign above the door as a non-colliding part with a welded, world-sized SurfaceGui at 50 pixels per stud.
-- No layout nudges were needed; the planned core places, yards, district pads, and landmarks are separated.
+- U2.1: No layout nudges were needed; the planned core places, yards, district pads, and landmarks are separated.
+- U2.3: Spawn offset is 22 studs from the Plaza center so it stays inside the 45-stud plaza radius; the inherited Baseplate is hidden and made non-colliding to prevent z-fighting with FTM_Ground.
 
 ## Blockers
 (none yet)
-
-## Phase 2 decisions
-- Spawn offset is 22 studs from the Plaza center so it stays inside the 45-stud plaza radius; the inherited Baseplate is hidden and made non-colliding to prevent z-fighting with FTM_Ground.
 
 ## Manual checks (user, in Studio)
 1. STUDIO-UNVERIFIED — Output shows `[FTM][Diagnostics] server ready`.
@@ -43,13 +41,15 @@ PHASE 1 COMPLETE
 - [x] U2.2 Sign helper, enterable building, props
 - [x] U2.3 CityBuilder service
 - [x] U2.4 Location toast controller
-- [ ] U2.5 Final QA and handoff
+- [x] U2.5 Final QA and handoff
+
+PHASE 2 COMPLETE
 
 ## Manual checks: Phase 2 (user, in Studio)
-1. You spawn in a plaza south of the Council Hall; every sign shrinks as you walk away and is readable up close.
-2. You can walk through the Council Hall door; inside are a roster board and a treasury window.
-3. Walking from the hall along each road reaches five different color-coded districts; a toast shows each district name when you enter.
-4. Each district has a gate sign and a notice board; Market Row has a recognizable drain, Hillview a footbridge, Eastside a school.
-5. The Records Office is enterable and has a price board, ledgers, a film desk and an audit desk.
-6. Two contractor yards exist (fenced, labeled A and B); the plaza has a podium.
-7. Output shows `built 5 districts ...` and no warnings.
+1. STUDIO-UNVERIFIED — You spawn in a plaza south of the Council Hall; every sign shrinks as you walk away and is readable up close.
+2. STUDIO-UNVERIFIED — You can walk through the Council Hall door; inside are a roster board and a treasury window.
+3. STUDIO-UNVERIFIED — Walking from the hall along each road reaches five different color-coded districts; a toast shows each district name when you enter.
+4. STUDIO-UNVERIFIED — Each district has a gate sign and a notice board; Market Row has a recognizable drain, Hillview a footbridge, Eastside a school.
+5. STUDIO-UNVERIFIED — The Records Office is enterable and has a price board, ledgers, a film desk and an audit desk.
+6. STUDIO-UNVERIFIED — Two contractor yards exist (fenced, labeled A and B); the plaza has a podium.
+7. STUDIO-UNVERIFIED — Output shows `built 5 districts ...` and no warnings.
