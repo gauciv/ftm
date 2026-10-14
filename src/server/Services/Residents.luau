@@ -10,6 +10,43 @@ local VisualRegistry = require(Shared.Registry.VisualRegistry)
 local Roster = require(script.Parent.Parent.Data.Residents)
 
 local Residents = {Name = "Residents"}
+local talkHandler: ((Player, Model) -> ())?
+local boundPrompts: {[ProximityPrompt]: boolean} = {}
+
+local function bindPrompt(prompt: ProximityPrompt)
+	if boundPrompts[prompt] or talkHandler == nil then
+		return
+	end
+	local model = prompt:FindFirstAncestorOfClass("Model")
+	if model == nil then
+		return
+	end
+	boundPrompts[prompt] = true
+	prompt.Triggered:Connect(function(player: Player)
+		local handler = talkHandler
+		if handler ~= nil then
+			handler(player, model)
+		end
+	end)
+end
+
+function Residents.bindTalkHandler(handler: (Player, Model) -> ())
+	talkHandler = handler
+	local folder = workspace:FindFirstChild("FTM_City")
+	local residentsFolder = if folder ~= nil then folder:FindFirstChild("Residents") else nil
+	if residentsFolder ~= nil then
+		for _, descendant in residentsFolder:GetDescendants() do
+			if descendant:IsA("ProximityPrompt") and descendant.Name == "TalkPrompt" then
+				bindPrompt(descendant)
+			end
+		end
+		residentsFolder.DescendantAdded:Connect(function(descendant)
+			if descendant:IsA("ProximityPrompt") and descendant.Name == "TalkPrompt" then
+				bindPrompt(descendant)
+			end
+		end)
+	end
+end
 
 local function districtCenter(district: any): Vector2
 	local angle = math.rad(district.AngleDeg)
@@ -104,6 +141,7 @@ local function buildResidents(root: Instance)
 			prompt.HoldDuration = 0
 			prompt.MaxActivationDistance = Config.TalkDistance
 			prompt.Parent = rootPart
+			bindPrompt(prompt)
 			count += 1
 		end)
 		if not ok then
