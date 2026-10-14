@@ -76,4 +76,36 @@ export type CityLayout = {
 	Spawn: {Name: string, Offset: Vector2},
 }
 
+export type ProblemSpec = {
+	Key: string,
+	Label: string,
+	DistrictKey: string,
+	SurfaceCycle: number,
+	StartValue: number,
+	RisePerCycle: number,
+}
+
+export type ResidentTeaching = {ProblemKey: string, Text: string}
+
+export type ResidentSpec = {
+	Key: string,
+	Name: string,
+	Role: string,
+	DistrictKey: string,
+	Anchor: string,
+	Dx: number,
+	Dz: number,
+	Teaches: {ResidentTeaching}?,
+	Greet: {string},
+	Gossip: {string}?,
+}
+
+export type NotebookEntry = {
+	kind: "Heard" | "Board" | "Note",
+	cycle: number,
+	text: string,
+}
+
+export type BoardEntry = {label: string, percent: number, erupted: boolean}
+
 return {}

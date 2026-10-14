@@ -15,6 +15,13 @@ local Config = {
 	PathWidth = 14,
 	CityGroundSize = 1800,
 	LocationToastSeconds = 3,
+	DevTimeScale = 1,
+	DialogueSeconds = 7,
+	TalkCooldownSeconds = 1,
+	TalkDistance = 10,
+	BoardReadDistance = 14,
+	NotebookMaxEntries = 50,
+	MarkerMaxDistance = 60,
 }
 
 return Config
