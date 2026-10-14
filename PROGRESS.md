@@ -1,8 +1,8 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U1.3 Shared foundation (Config, Types, Log, Net)
-Next: U1.4 Server bootstrap + Diagnostics service
+Last done: U1.4 Server bootstrap + Diagnostics service
+Next: U1.5 Client bootstrap + Diagnostics controller
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
@@ -11,7 +11,7 @@ Note for next AI: Resume at U1.1; initial scaffold files were uncommitted.
 - [x] U1.1 Baseline, Rojo tree check, tooling config
 - [x] U1.2 docs/DESIGN.md, AGENTS.md, README
 - [x] U1.3 Shared foundation (Config, Types, Log, Net)
-- [ ] U1.4 Server bootstrap + Diagnostics service
+- [x] U1.4 Server bootstrap + Diagnostics service
 - [ ] U1.5 Client bootstrap + Diagnostics controller
 - [ ] U1.6 Visual registry + placeholder building + DevSandbox
 - [ ] U1.7 Final QA and handoff
