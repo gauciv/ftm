@@ -23,4 +23,5 @@ Roblox + Rojo. Luau only, `.luau` files, `--!strict` at the top of every file. N
 ## Process
 - Conventional Commits, small commits, no tags/remotes/push. Update the PROGRESS.md Handoff block after every item.
 - Studio verification: edit files, never scripts inside Studio. If Studio MCP tools (e.g. BloxForge) are available, after Rojo syncs: playtest, read Output, screenshot UI changes. Otherwise mark the item STUDIO-UNVERIFIED under Manual checks.
+- Rojo build does not check Luau syntax. If no parser is available, mark syntax `UNVERIFIED` and re-read each new file once for syntax errors before ticking. The user's Studio Output is the final check.
 <!-- END OF AGENTS -->

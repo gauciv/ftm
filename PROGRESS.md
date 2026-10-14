@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U3.8 Dev command, final QA, handoff
-Next: U3.9
+Last done: U3.9 Notebook syntax, city layering, manual-check count
+Next: Phase 4 (awaiting prompt)
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: Phase 3 complete; Studio verification unavailable (no connected place).
+Note for next AI: Phase 3 complete; Studio MCP is available but no place is connected, so U3.9 remains STUDIO-UNVERIFIED.
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -65,12 +65,12 @@ PHASE 2 COMPLETE
 - [x] U3.6 Client dialogue + resident markers
 - [x] U3.7 Client notebook + board reader
 - [x] U3.8 Dev command, final QA, handoff
-- [ ] U3.9 Fix Notebook syntax error, z-fighting, manual-check count
+- [x] U3.9 Fix Notebook syntax error, z-fighting, manual-check count
 
 PHASE 3 COMPLETE
 
 ## Manual checks: Phase 3 (user, in Studio)
-1. STUDIO-UNVERIFIED — Output shows `spawned 15 residents`, no warnings. 15 labeled people stand around the five districts.
+1. STUDIO-UNVERIFIED — Output shows `spawned 16 residents`, no warnings. 16 labeled people stand around the five districts.
 2. STUDIO-UNVERIFIED — On spawn you get one hint line about your home district (Market Row for the first player). The notebook button is NOT visible yet.
 3. STUDIO-UNVERIFIED — In Market Row, Aling Nena shows a `!`. Press E near her: a dialogue panel appears, the `!` disappears, a notebook button appears, and the notebook has a "Heard" entry.
 4. STUDIO-UNVERIFIED — Talk to a resident without a `!` (e.g. Ate Joy): you get a plain line, no new entry.
@@ -79,3 +79,6 @@ PHASE 3 COMPLETE
 7. STUDIO-UNVERIFIED — Visit Hillview's board without talking to anyone there: the footbridge bar is visible and higher than the drain.
 8. STUDIO-UNVERIFIED — `shared.FTMDev.advance(20)`, then read boards: bars cap at 100 and show "ERUPTED"; Output logs each eruption once; no errors.
 9. STUDIO-UNVERIFIED — In the Client view Explorer, ReplicatedStorage contains no problem values or teach maps.
+10. STUDIO-UNVERIFIED — Output has no 'Could not load service' and no 'Start failed' lines.
+
+Syntax: UNVERIFIED — no Luau parser is installed; Phase 3 files manually re-read for syntax.
