@@ -1,11 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U3.6 Client dialogue and resident markers
-Next: U3.7
+Last done: U3.7 Client notebook and board reader
+Next: U3.8
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: U3.6 complete; client markers are world-sized Scale BillboardGuis with MaxDistance.
+Note for next AI: U3.7 complete; clients display only server-provided notebook and board data.
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -62,7 +62,7 @@ PHASE 2 COMPLETE
 - [x] U3.4 Notebook service + resident dialogue flow
 - [x] U3.5 Notice board readings
 - [x] U3.6 Client dialogue + resident markers
-- [ ] U3.7 Client notebook + board reader
+- [x] U3.7 Client notebook + board reader
 - [ ] U3.8 Dev command, final QA, handoff
 
 ## Manual checks: Phase 3 (user, in Studio)
