@@ -1,8 +1,20 @@
 --!strict
 
-local Types = require(game:GetService("ReplicatedStorage").Shared.Types)
+type Teaching = {ProblemKey: string, Text: string}
+type ResidentDefinition = {
+	Key: string,
+	Name: string,
+	Role: string,
+	DistrictKey: string,
+	Anchor: string,
+	Dx: number,
+	Dz: number,
+	Teaches: {Teaching}?,
+	Greet: {string},
+	Gossip: {string}?,
+}
 
-local Residents: {Types.ResidentSpec} = {
+local Residents: {ResidentDefinition} = {
 	{Key = "Nena", Name = "Aling Nena", Role = "Fish Vendor", DistrictKey = "MarketRow", Anchor = "Fish Stall", Dx = -3, Dz = 0, Teaches = {{ProblemKey = "MarketDrain", Text = "Market Drain floods ankle-deep when it rains."}}, Greet = {"Fresh fish, fresh complaints.", "Rain comes down. The water comes up.", "Buy something before the smell wins."}},
 	{Key = "Tonyo", Name = "Mang Tonyo", Role = "Rice Seller", DistrictKey = "MarketRow", Anchor = "Rice Stall", Dx = 3, Dz = 0, Teaches = {{ProblemKey = "HillviewBridge", Text = "A cousin says the Hillview footbridge creaks."}}, Greet = {"Rice is steady. The bridge, less so.", "My cousin says the bridge makes a new noise each week.", "No credit today. The ledger has a memory."}},
 	{Key = "Joy", Name = "Ate Joy", Role = "Dry Goods Vendor", DistrictKey = "MarketRow", Anchor = "Dry Goods", Dx = 0, Dz = 4, Greet = {"The stall fees rise faster than the roof leaks.", "Business is fine, if you ignore the fees.", "I sell dry goods. The market has other plans."}},

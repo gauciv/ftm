@@ -1,8 +1,15 @@
 --!strict
 
-local Types = require(game:GetService("ReplicatedStorage").Shared.Types)
+type ProblemDefinition = {
+	Key: string,
+	Label: string,
+	DistrictKey: string,
+	SurfaceCycle: number,
+	StartValue: number,
+	RisePerCycle: number,
+}
 
-local Problems: {Types.ProblemSpec} = {
+local Problems: {ProblemDefinition} = {
 	{
 		Key = "MarketDrain",
 		Label = "Market Drain",

@@ -5,9 +5,17 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Config = require(ReplicatedStorage.Shared.Config)
 local Log = require(ReplicatedStorage.Shared.Log)
 local Types = require(ReplicatedStorage.Shared.Types)
-local Definitions: {Types.ProblemSpec} = require(script.Parent.Parent.Data.Problems)
+type ProblemDefinition = {
+	Key: string,
+	Label: string,
+	DistrictKey: string,
+	SurfaceCycle: number,
+	StartValue: number,
+	RisePerCycle: number,
+}
+local Definitions: {ProblemDefinition} = require(script.Parent.Parent.Data.Problems)
 
-type ProblemState = {definition: Types.ProblemSpec, value: number?, erupted: boolean}
+type ProblemState = {definition: ProblemDefinition, value: number?, erupted: boolean}
 
 local Problems = {Name = "Problems"}
 local states: {[string]: ProblemState} = {}
@@ -84,6 +92,14 @@ end
 
 function Problems.getCycle(): number
 	return if Clock ~= nil then Clock.getCycle() else 0
+end
+
+function Problems.debugState()
+	local cycle = if Clock ~= nil then Clock.getCycle() else 0
+	for _, state in states do
+		local value = if state.value ~= nil then tostring(math.floor(state.value)) .. "%" else "not surfaced"
+		Log.info("Problems", string.format("cycle %d | %s | %s | erupted=%s", cycle, state.definition.Key, value, tostring(state.erupted)))
+	end
 end
 
 return Problems
