@@ -10,6 +10,11 @@ local Config = {
 	HaggleRounds = 3,
 	DevSandbox = true,
 	DebugLogging = true,
+	DistrictRadius = 420,
+	DistrictPadRadius = 110,
+	PathWidth = 14,
+	CityGroundSize = 1800,
+	LocationToastSeconds = 3,
 }
 
 return Config

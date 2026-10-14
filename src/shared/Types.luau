@@ -14,4 +14,61 @@ export type Controller = {
 
 export type RemoteKind = "Event" | "Function"
 
+export type PropSpec = {
+	Key: string,
+	Label: string?,
+	Offset: Vector2,
+	Size: Vector3,
+	Color: Color3?,
+	Rotation: number?,
+}
+
+export type Landmark = PropSpec & {
+	ProblemSite: string?,
+}
+
+export type District = {
+	Key: string,
+	Name: string,
+	GroupKey: string,
+	Color: Color3,
+	AngleDeg: number,
+	Gate: PropSpec,
+	NoticeBoard: PropSpec,
+	Landmarks: {Landmark},
+}
+
+export type Place = {
+	Key: string,
+	Name: string,
+	Position: Vector2,
+	Size: Vector3,
+	Color: Color3,
+	Enterable: boolean,
+	DoorSide: string,
+	Rotation: number,
+	Radius: number,
+	Props: {PropSpec},
+}
+
+export type Yard = {
+	Key: string,
+	Name: string,
+	Label: string,
+	AngleDeg: number,
+	RadiusScale: number,
+	HalfExtent: number,
+	Props: {PropSpec},
+}
+
+export type CityLayout = {
+	Ground: {Size: number, Color: Color3},
+	Districts: {District},
+	Places: {Place},
+	Plaza: {Position: Vector2, Radius: number, Props: {PropSpec}},
+	Yards: {Yard},
+	Paths: {{Key: string, TargetKind: string, TargetKey: string}},
+	Spawn: {Name: string, Offset: Vector2},
+}
+
 return {}
