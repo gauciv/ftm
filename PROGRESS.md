@@ -1,12 +1,11 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U2.5 Final QA and handoff
-Last done: U3.1 Data, config, types, net names, AGENTS rules
-Next: U3.2
+Last done: U3.2 CycleClock and Problems services
+Next: U3.3
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
-Note for next AI: U3.1 complete; roster has 16 entries although manual check says 15.
+Note for next AI: U3.2 complete; surfaced bar values remain server-only.
 
 ## Phase 1: Scaffold
 - [x] U1.1 Baseline, Rojo tree check, tooling config
@@ -58,7 +57,7 @@ PHASE 2 COMPLETE
 
 ## Phase 3: Residents, problems, notebook, bars
 - [x] U3.1 Data, config, types, net names, AGENTS rules
-- [ ] U3.2 Cycle clock + problem bars
+- [x] U3.2 Cycle clock + problem bars
 - [ ] U3.3 Person placeholder + resident spawning
 - [ ] U3.4 Notebook service + resident dialogue flow
 - [ ] U3.5 Notice board readings
