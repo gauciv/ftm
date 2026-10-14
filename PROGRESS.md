@@ -1,8 +1,8 @@
 # PROGRESS: For The Masses
 
 ## Handoff
-Last done: U2.1 City data + config
-Next: U2.2 Sign helper, enterable building, props
+Last done: U2.2 Sign helper, enterable building, props
+Next: U2.3 CityBuilder service
 Partial/dirty files: none
 Tools: rojo available; stylua, luau-lsp, selene unavailable
 Note for next AI: Phase 1 patch complete; Studio checks STUDIO-UNVERIFIED (no connected place).
@@ -37,7 +37,7 @@ PHASE 1 COMPLETE
 
 ## Phase 2: Greybox city
 - [x] U2.1 City data + config
-- [ ] U2.2 Sign helper, enterable building, props
+- [x] U2.2 Sign helper, enterable building, props
 - [ ] U2.3 CityBuilder service
 - [ ] U2.4 Location toast controller
 - [ ] U2.5 Final QA and handoff

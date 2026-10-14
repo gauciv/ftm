@@ -3,6 +3,8 @@
 local Log = require(script.Parent.Parent.Log)
 local Overrides = require(script.Parent.Overrides)
 local Building = require(script.Parent.Placeholders.Building)
+local Prop = require(script.Parent.Placeholders.Prop)
+local Sign = require(script.Parent.Placeholders.Sign)
 
 local VisualRegistry = {}
 
@@ -23,22 +25,7 @@ local function buildUnknown(key: string, params: {[string]: any}?): Model
 	box.Color = Color3.fromRGB(255, 0, 255)
 	box.Parent = model
 	model.PrimaryPart = box
-	local billboard = Instance.new("BillboardGui")
-	billboard.Name = "UnknownSign"
-	billboard.Adornee = box
-	billboard.Size = UDim2.fromOffset(400, 100)
-	billboard.StudsOffset = Vector3.new(0, size.Y / 2 + 1, 0)
-	billboard.MaxDistance = 300
-	billboard.AlwaysOnTop = true
-	billboard.Parent = box
-	local text = Instance.new("TextLabel")
-	text.Size = UDim2.fromScale(1, 1)
-	text.BackgroundTransparency = 1
-	text.Text = label
-	text.TextColor3 = Color3.new(1, 1, 1)
-	text.TextScaled = true
-	text.Font = Enum.Font.GothamBold
-	text.Parent = billboard
+	Sign.create(model, label, Vector3.new(math.min(size.X, 8), 2, 0.25), CFrame.new(position + Vector3.new(0, size.Y + 1, 0)))
 	return model
 end
 
@@ -51,6 +38,11 @@ function VisualRegistry.build(key: string, params: {[string]: any}?): Model
 	local prefix = string.match(key, "^([^%.]+)") or key
 	if prefix == "Building" then
 		return Building.build(key, params)
+	elseif prefix == "Prop" then
+		local prop = Prop.build(key, params)
+		if prop ~= nil then
+			return prop
+		end
 	end
 
 	Log.warn("VisualRegistry", string.format("Unknown visual key '%s'; using magenta placeholder", key))
